@@ -1,0 +1,30 @@
+<%pagetitle(t(:service_download))%>
+<div class="banner">
+  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="894" height="344">
+    <param name="movie" value="flash/banner.swf" />
+    <param name="quality" value="high" />
+    <param name="wmode" value="transparent" />
+    <embed src="flash/banner.swf" width="894" height="344" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" wmode="transparent" ></embed>
+  </object>
+</div>
+
+
+<div id="download">
+  <ul><p><%=t(:service_download)%></p></ul>
+  <div class="downloadlist">
+    <ul>
+      <%if params[:locale]=="en"%>
+        <%@downloads.each do |download|%>
+          <li><%=link_to download.title,download.en_pdf.url%><span><%=((download.en_pdf.size.to_f)/(1024*1024)).round(2)%>MB</span></li>
+        <%end%>
+      <%else%>
+        <%@downloads.each do |download|%>
+          <li><%=link_to download.title,download.pdf.url%><span><%=((download.pdf.size.to_f)/(1024*1024)).round(2)%>MB</span></li>
+        <%end%>
+      <%end%>
+      <li class="adobe"><a href="http://get.adobe.com/cn/reader/"><span><%=t(:download_pdf)%></span></a></li>
+      <li class="contactdownload"><a href="http://www.apple.com/quicktime/download/"><span><%=t(:download_quicktime)%></span></a></li>
+    </ul>
+  </div>
+</div>
+

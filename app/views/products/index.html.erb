@@ -1,0 +1,35 @@
+<% pagetitle(t(:product)) %>
+<!--中间内容信息-->
+
+<div class="subleft">
+  <%@top_products.each do |top_product|%>
+
+    <div class="subcolum"  onClick="w('top_product<%=top_product.id%>')"><%=link_to_remote top_product.name,:update => "top_prodcut_body",:url=>product_path(top_product),:html=>{:class => "a1"}, :method => :get, :failure => "alert('HTTP Error ' + request.status + '!')"%></div>
+    <div class="padtb8" id="top_product<%=top_product.id%>" style="display:none">
+      <%top_product.middle_products.each do |middle_product|%>
+        <div class="f fblod" id="sgc" onClick="w('gc<%=middle_product.id%>')" style="background:url(images/icon2.gif) 0px 6px no-repeat">
+          <%=link_to_remote middle_product.name,:update => "top_prodcut_body",:url=>middle_product_path(middle_product), :method => :get, :failure => "alert('HTTP Error ' + request.status + '!')"%>
+        </div>
+        <div class="ps" id="gc<%=middle_product.id%>" style="display:none">
+          <%middle_product.end_products.each do |end_product|%>
+            <div id="sfgc138" class="f">
+              <span>
+                <%=link_to_remote end_product.name,:update => "top_prodcut_body",:url=>end_product_path(end_product), :method => :get, :html=>{:onclick=>"remove_highlight(this);jQuery(this).addClass('highlight');"}%>
+              </span>
+            </div>
+          <%end%>
+
+        </div>
+
+      <%end%>
+    </div>
+  <%end%>
+
+</div>
+<div class="subright" id="top_prodcut_body">
+  <%=render :partial=>"top_product_body",:locals=>{:top_product=>@top_product}%>
+</div>
+<div class="clear"></div>
+
+
+

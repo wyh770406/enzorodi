@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="安住" />
+    <meta name="keywords" content="安住" />
+    <title><%=  yield :title %></title>
+    <%= yield :stylesheet %>
+    <%= stylesheet_link_tag 'index' %>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag 'download','member_nav' %>
+    <%= yield :javascript %>
+  </head>
+  <body>
+    <!--头部信息-->
+    <div id="header">
+      <ul ><li style="float:right;">
+          <span style="display:block; float:right;">
+            <a href="http://www.dietsche.com/"><%=image_tag "deicon.gif",:size => "119x15",:border=>0,:style=>"padding:0 0;"%></a></span><a href="<%=t(:return_homepage_url)%>"><%=t(:return_homepage)%></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a title="中文版" href="/">中文版</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a title="english" href="/?locale=en">English</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+              <li><img src="<%=t(:logo_home)%>" width="<%=t(:logo_width)%>" height="<%=t(:logo_height)%>" border="0" /></li></ul>
+    </div>
+    <!--导航信息-->
+    <div id="menu">
+      <ul id="member_nav">
+        <li><%=link_to t(:company),company_infos_path%></a>
+          <ul>
+            <li><%=link_to t(:company_history),company_histories_path%></li>
+            <li><%=link_to t(:company_profile),company_infos_path%></li>
+            <li><%=link_to t(:core_spirit),company_spirits_path%></li>
+          </ul>
+        </li>
+        <li><%=link_to t(:product),products_path%>
+          <%=render :partial=>"layouts/product"%>
+        </li>
+        <li><%=link_to t(:ad_tech),stick_teches_path%>
+          <ul>
+            <li><%=link_to t(:ad_tech),stick_teches_path%></li>
+          </ul>
+        </li>
+        <li><%=link_to t(:service),services_path%>
+          <ul>
+            <li><%=link_to t(:service_download),downloads_path%></li>
+          </ul>
+        </li>
+        <li><%=link_to t(:dealer),handlers_path%>
+          <ul>
+            <li><%=link_to t(:dealer),handlers_path%></li>
+          </ul>
+        </li>
+        <li><%=link_to t(:contact),contacts_path%>
+          <ul>
+            <li><%=link_to t(:contact),contacts_path%></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="clear"></div>
+    </div>
+    <!--中间内容信息-->
+    <div id="contenter">
+      <%= yield :layout%>
+
+    </div>
+    <!--底部信息-->
+    <div id="footer">
+      <div class="copyright">Copyright&nbsp;&nbsp;(C)&nbsp;&nbsp;2011&nbsp;&nbsp;<%=t(:company_name)%></div>
+      <div class="footermid">
+        <ul>
+          <li style="height:105px;"><span><%=t(:company)%></span>
+            <%=link_to t(:company_history),company_histories_path%><br />
+            <%=link_to t(:company_profile),company_infos_path%><br />
+            <%=link_to t(:core_spirit),company_spirits_path%></li>
+          <li><span><%=t(:product)%></span>
+            <%=render :partial=>"layouts/product_bottom"%>
+          </li>
+          <li><span><%=t(:ad_tech)%></span>
+            <%=link_to t(:ad_tech),stick_teches_path%></li>
+          <li style="border:none"><span><%=t(:service)%></span>
+            <%=link_to t(:service_download),downloads_path%></li>
+          <li class="address">
+            <%=t(:compinfo_addr)%>:  <br /><%=t(:company_addr)%><br />
+            <%=t(:compinfo_tel)%>: 86-21-32032771<br />
+            <%=t(:compinfo_fax)%>: 86-21-32032775<br />
+            <%=t(:compinfo_email)%>: info@enzorodi.com.cn<br />
+            <%=t(:compinfo_hotline)%>：<br />4000216878
+
+          </li>
+        </ul></div>
+      <div class="footerback">沪ICP备11007348号</div>
+      <div class="clear"></div>
+    </div>
+    <div id="bottom"></div>
+  </body>
+</html>

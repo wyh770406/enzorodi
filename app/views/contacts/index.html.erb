@@ -1,0 +1,46 @@
+<% pagetitle(t(:contact)) %>
+
+<!--中间内容信息-->
+
+<div class="banner">
+  <img src="/images/kontakt_02.jpg" width="894" height="344" border="0" />
+</div>
+
+<div id="contact">
+  <div class="serviceright">
+    <ul><li><p><%=t(:company_name)%></p></li>
+      <li><%=t(:compinfo_addr)%>:  <%=t(:company_addr)%></li>
+      <li><%=t(:compinfo_tel)%>: 86-21-32032771</li>
+      <li><%=t(:compinfo_fax)%>: 86-21-32032775</li>
+      <li><%=t(:compinfo_email)%>: info@enzorodi.com.cn</li>
+      <li><%=t(:compinfo_hotline)%>：4000216878  </li>
+    </ul>
+
+
+  </div>
+  <div class="contactleft">
+    <ul><p><%=t(:contact_us)%></p></ul>
+    <% if flash[:notice] -%>
+      <div id="notice"><font color="red"><%= flash[:notice] %></font></div>
+    <% end -%>
+    <% if flash[:error] -%>
+      <div id="error"><font color="red"><%= flash[:error] %></font></div>
+    <% end -%>
+    <%= error_messages_for :contact %>
+    <% form_for :contact, :url => contacts_path do |f| -%>
+      <ul>
+        <li><span><%= f.label :name,t(:client_name) %>: *</span><%= f.text_field :name,:class=>"contact_form" %></li>
+        <li><span><%= f.label :tel,t(:client_tel) %>:</span><%= f.text_field :tel,:class=>"contact_form" %></li>
+        <li><span><%= f.label :fax,t(:client_fax) %>:</span><%= f.text_field :fax,:class=>"contact_form" %></li>
+        <li><span><%= f.label :address,t(:client_addr) %>:</span><%= f.text_field :address,:class=>"contact_form" %></li>
+        <li><span><%= f.label :email,t(:client_email) %>: *</span><%= f.text_field :email,:class=>"contact_form" %></li>
+        <li><span><%= f.label :desc,t(:client_desc) %>: *</span><%= f.text_area :desc,:class=>"contact_form",:style=>"width: 305px; height: 80px; float: left;" %></li>
+        <ul><%=t(:client_notice)%></ul>
+        <ul class="ok"><%= submit_tag t(:client_send) %></ul>
+      </ul>
+    <% end -%>
+  </div>
+</div>
+
+
+

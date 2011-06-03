@@ -1,0 +1,12 @@
+
+<title>显示产品大图 - 安住</title>
+
+<style type="text/css">
+  BODY { background: black}
+</style>
+<!--,{:onclick=>"javascript:close();"}-->
+<%if params[:locale]=="en"%>
+  <%=link_to image_tag(@end_product.en_end.url, :size => "591x591",:border=>0),'javascript:close();'%>
+<%else%>
+  <%=link_to image_tag(@end_product.end.url, :size => "591x591",:border=>0),'javascript:close();'%>
+<%end%>

@@ -1,0 +1,11 @@
+<ul>
+  <%@top_products.each do |top_product|%>
+    <li><%=link_to top_product.name,show_cat_product_path(top_product)%></li>
+  <%end%>
+
+ <!--
+ <a href="product.html">塑料产品</a>
+ <li><a href="metal.html">金属产品</a></li>
+  <li><a href="accessories.html">配件</a></li>
+  <li><a href="support.html">支撑架</a></li>-->
+</ul>

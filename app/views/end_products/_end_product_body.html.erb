@@ -1,0 +1,76 @@
+<div class="thirdrightmid">
+  <ul class="thirdword">
+    <li class="thirdtitle"><%=@end_product.middle_product.name%></li>
+    <li class="thirdtitle"><%=@end_product.name%></li>
+    <li><%=@end_product.end_product_desc%>
+    </li>
+    <li class="thirddownload">
+      <%if params[:locale]=="en"%>
+        <%if @end_product.en_tech_pdf.url!="/en_tech_pdfs/original/missing.png"%>
+          <%=link_to image_tag("tech_download_en.jpg", :size => "100x47",:border=>0),@end_product.en_tech_pdf.url%>
+        <%end%>
+      <%else%>
+        <%if @end_product.tech_pdf.url!="/tech_pdfs/original/missing.png"%>
+          <%=link_to image_tag("tech_download.jpg", :size => "100x47",:border=>0),@end_product.tech_pdf.url%>
+        <%end%>
+      <%end%>
+    </li>
+    <li class="thirddownload">
+      <%if params[:locale]=="en"%>
+        <%if @end_product.en_spec_pdf.url!="/en_spec_pdfs/original/missing.png"%>
+          <%=link_to image_tag("spec_download_en.gif", :size => "100x47",:border=>0),@end_product.en_spec_pdf.url%>
+        <%end%>
+      <%else%>
+        <%if @end_product.spec_pdf.url!="/spec_pdfs/original/missing.png"%>
+          <%=link_to image_tag("spec_download.gif", :size => "100x47",:border=>0),@end_product.spec_pdf.url%>
+        <%end%>
+      <%end%>
+    </li>
+  </ul>
+  <div class="thirdmidimg">
+    <table width="230" border="0" cellspacing="3" cellpadding="0">
+      <tr>
+        <td colspan="3" align="center">
+          <%if params[:locale]=="en"%>
+            <%=image_tag @end_product.en_end.url(:medium), :size => "200x200",:border=>0%>
+          <%else%>
+            <%=image_tag @end_product.end.url(:medium), :size => "200x200",:border=>0%>
+          <%end%>
+        </td>
+      </tr>
+      <tr>
+        <%i=0
+        @related_end_products.each do |related_end_product|%>
+          <%if i % 3 == 0 && i!=0%>
+          </tr><tr>
+            <td>
+              <%if params[:locale]=="en"%>
+                <%=link_to image_tag(related_end_product.en_end.url(:thumb), :size => "70x70",:border=>0),display_photo_end_product_path(related_end_product),:popup => ['new_window_name', 'height=600,width=600']%>
+              <%else%>
+                <%=link_to image_tag(related_end_product.end.url(:thumb), :size => "70x70",:border=>0),display_photo_end_product_path(related_end_product),:popup => ['new_window_name', 'height=600,width=600']%>
+              <%end%>
+            </td>
+          <%else%>
+            <td>
+              <%if params[:locale]=="en"%>
+                <%=link_to image_tag(related_end_product.en_end.url(:thumb), :size => "70x70",:border=>0),display_photo_end_product_path(related_end_product),:popup => ['new_window_name', 'height=600,width=600']%>
+              <%else%>
+                <%=link_to image_tag(related_end_product.end.url(:thumb), :size => "70x70",:border=>0),display_photo_end_product_path(related_end_product),:popup => ['new_window_name', 'height=600,width=600']%>
+              <%end%>
+            </td>
+          <%end%>
+          <%i=i+1
+        end%>
+      </tr>
+
+    </table>
+
+  </div>
+  <ul class="thirdrightimg">
+    <%if params[:locale]=="en"%>
+      <%=image_tag @end_product.en_end_photo.url, :size => "210x700",:border=>0%>
+    <%else%>
+      <%=image_tag @end_product.end_photo.url, :size => "210x700",:border=>0%>
+    <%end%>
+  </ul>
+</div>

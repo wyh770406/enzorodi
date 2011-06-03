@@ -1,0 +1,13 @@
+<div class="tworightmid">
+  <ul class="tworightword">
+    <li class="rightmidtitle"><%=@middle_product.name%></li>
+    <li class="midcont"><%=@middle_product.middle_product_desc%>
+    </li>
+    <li class="midimg"><img src="/images/2770a2e48d.jpg" border="0" /><img src="/images/57c174a0be.jpg" border="0" /><img src="/images/789198d1d9.jpg" border="0" /><img src="/images/0cb22d0a0a.jpg" border="0" /><img src="/images/56b0eae19b.jpg" border="0" /></li>
+  </ul>
+  <%if params[:locale]=="en"%>
+    <%=image_tag @middle_product.en_middle_photo.url,:border=>0%>
+  <%else%>
+    <%=image_tag @middle_product.middle_photo.url,:border=>0%>
+  <%end%>
+</div>

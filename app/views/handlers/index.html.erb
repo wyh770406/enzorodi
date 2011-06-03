@@ -1,0 +1,46 @@
+<%pagetitle(t(:dealer))%>
+
+<div class="banner">
+  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="894" height="344">
+    <param name="movie" value="flash/banner.swf" />
+    <param name="quality" value="high" />
+    <param name="wmode" value="transparent" />
+    <embed src="flash/banner.swf" width="894" height="344" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" wmode="transparent" ></embed>
+  </object>
+</div>
+
+<div id="service">
+  <ul>
+    <p><%=t(:dealer)%></p></ul>
+  <ul>
+    <table width="890" border="0" cellspacing="1" cellpadding="0" bgcolor="#CCCCCC">
+      <tr align="center" bgcolor="#FFFFFF">
+        <td width="144" height="25"><strong><%=t(:shop_name)%></strong></td>
+        <td width="96"><strong><%=t(:shop_abbr)%></strong></td>
+        <td width="210"><strong><%=t(:shop_addr)%></strong></td>
+        <td width="102"><strong><%=t(:shop_tel)%></strong></td>
+        <td width="61"><strong><%=t(:shop_city)%></strong></td>
+        <td width="69"><strong><%=t(:shop_area)%></strong></td>
+        <td width="82"><strong><%=t(:shop_hq)%></strong></td>
+        <td width="117"><strong><%=t(:shop_dept)%></strong></td>
+      </tr>
+      <%@handlers.each do |handler|%>
+        <tr align="center" bgcolor="#FFFFFF">
+          <td height="24"><%=handler.name%></td>
+          <td><%=handler.abbr%></td>
+          <td><%=handler.address%></td>
+          <td><%=handler.tel%></td>
+          <td><%=handler.city.name%></td>
+          <td><%=handler.city.area.name%></td>
+          <td><%=handler.headquarter%></td>
+          <td><%=handler.depart%></td>
+        </tr>
+      <%end%>
+
+   
+
+    </table>
+  </ul>
+</div>
+
+

@@ -1,0 +1,14 @@
+<div class="onerightmid">
+  <ul>
+    <li class="rightmidtitle"><%=@top_product.name%></li>
+    <li class="midcont"><%=@top_product.top_product_desc%>
+    </li>
+  </ul>
+</div>
+<div class="onerightimg">
+  <%if params[:locale]=="en"%>
+    <%=image_tag @top_product.en_top_photo.url,:border=>0%>
+  <%else%>
+    <%=image_tag @top_product.top_photo.url,:border=>0%>  
+  <%end%>
+</div>

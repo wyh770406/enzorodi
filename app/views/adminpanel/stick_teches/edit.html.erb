@@ -1,0 +1,11 @@
+<%= error_messages_for :stick_tech %>
+<% form_for :stick_tech,
+  :url => adminpanel_stick_tech_url(@stick_tech),
+  :html => { :method => :put } do |f| %>
+  <p><%= f.label :body,'内容:' %><br/>
+    <%=fckeditor_textarea( "stick_tech", "body", :toolbarSet => 'Default', :width => '800px', :height => '500px') %></p>
+
+  <p><%= submit_tag '修改' %></p>
+<% end -%>
+
+

@@ -1,0 +1,6 @@
+<h2><%=@nav_str%></h2>
+<div id="end_products_list">
+  <%= render  :active_scaffold => "adminpanel/end_products",:params => {:middle_id=> @middle_product_id,:locale=>@locale},
+    :conditions=> [ 'end_products.middle_product_id = ?',@middle_product_id]
+%>
+</div>
